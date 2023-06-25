@@ -150,7 +150,7 @@ const Home = () => {
                   letterSpacing: ".3rem",
                   color: "black",
                   textDecoration: "none",
-                  mt: 11,
+                  
                 }}
               >
                 Contact Us
