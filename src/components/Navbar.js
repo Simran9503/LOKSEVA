@@ -12,8 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from '@mui/material';
+ import logo from '../components/logo.jpg'
 
-const pages = ['About Us', 'help','Login'];
+const pages = ['Home','About Us', 'help','Login'];
 const settings = ['Profile', 'Account',  'Logout'];
 
 function ResponsiveAppBar() {
@@ -36,11 +38,24 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: 'teal'}}>
+    <AppBar position="static" style={{backgroundColor: 'black'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <Link to="/">
+                   <img
+           src={logo}
+            alt="logo"
+           style={{
+            width:"50px",
+           height: "50px",
+           margin: "0px 20px",
+           justifyContent: "center",
+padding:'4px'
+        
+            }}
+         />
+          </Link>
           
-          <img src="./images/ev.jpg" height="40px"  style={{padding:'4px'}}/>
           <Typography
             variant="h4"
             noWrap
@@ -112,7 +127,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Logo
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
