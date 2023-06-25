@@ -1,12 +1,12 @@
 import { Box, Stack, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import logo from "../components/logo.jpg";
+import logo from"../assets/logo.jpg";
 const Nav = () => {
   return (
     <div>
       <Box>
-        <Stack direction="row" spacing={60}>
-          <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={10} justifyContent="space-between">
+          <Stack direction="row" spacing={3} >
             <Link to="/">
               <img
                 src={logo}
@@ -14,7 +14,7 @@ const Nav = () => {
                 style={{
                   width: "40px",
                   height: "43px",
-                  margin: "0px 20px",
+                  margin: "0px 10px",
                   justifyContent: "center",
                   padding: "2px",
                 }}
@@ -29,10 +29,11 @@ const Nav = () => {
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
-                fontWeight: 700,
+                fontWeight: 500,
                 letterSpacing: ".3rem",
                 color: "white",
                 textDecoration: "none",
+                ml: "0px", pl:"0"
               }}
             >
               LOKSEVA
