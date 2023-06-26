@@ -9,6 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { green } from "@mui/material/colors";
+import riksha from './components/riksha.png'
 
 const Home = () => {
   const { text } = useTypewriter({
@@ -16,6 +17,7 @@ const Home = () => {
     loop: {},
   });
 
+  
   return (
     <div
       class="image"
@@ -33,6 +35,7 @@ const Home = () => {
         variant="h4"
         sx={{
           fontWeight: 600,
+          justifyContent:'center'
         }}
       >
         Welcome!{text}
@@ -47,8 +50,8 @@ const Home = () => {
       >
         <Card sx={{ maxWidth: 345, mt: 10 , backgroundColor:'#d0e7b7'}}>
           <CardMedia
-            sx={{ height: 140 }}
-            image="https://www.google.com/url?sa=i&url=https%3A%2F%2Fkineticgreenvehicles.com%2Felectric-three-wheelers%2Fpassenger%2F&psig=AOvVaw3OBDhshYZow0dndVc4bT5-&ust=1687790026648000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJCylPrR3v8CFQAAAAAdAAAAABAE"
+            sx={{ height: 140 , }}
+            image= {riksha}
             title="E-Riksha"
           />
           <CardContent>
