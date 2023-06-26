@@ -18,140 +18,155 @@ const Home = () => {
   });
 
   return (
-    <>
-      <Box  sx={{backgroundImage : {evimage}} }>
-        <Stack alignItems="center">
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 600,
-              mt: "20px",
-            }}
-          >
-            Welcome!{text}
-            <Cursor />
-          </Typography>
-        </Stack>
-        <Stack
-          spacing={{ xs: 1, sm: 2 }}
-          direction="row"
-          useFlexGap
-          flexWrap="wrap"
-          justifyContent="center"
-          sx={{ pt: "50px" }}
+    <div
+      sx={{
+        backgroundImage: {evimage},
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        width : "100%",
+        height : "100%",
+        display: "flex",
+        justiyContent: "space-between",
+        flexDirection: "column",
+      }}
+     >
+      <Stack
+        alignItems="center"
+        sx={{
+          backgroundImage: { evimage },
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          width :"100vw"
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 600,
+            mt: "20px",
+          }}
         >
-          <Card sx={{ maxWidth: 450, backgroundColor: "#d0e7b7" }}>
-            {" "}
-            <CardMedia
-              sx={{
-                padding: "1em 1em 1em 1em",
-                objectFit: "contain",
-                height: "300px",
-              }}
-              image={evimage}
-              title="E-Riksha"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Electric vehicle
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                An electric vehicle is a vehicle that uses one or more electric
-                motors for propulsion. It can be powered by a collector system,
-                with electricity from extravehicular sources, or it can be
-                powered autonomously by a battery.
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">
-                <Link
-                  to="https://en.wikipedia.org/wiki/Electric_vehicle"
-                  style={{ textDecoration: "none" }}
-                >
-                  Learn More
-                </Link>
-              </Button>
-            </CardActions>
-          </Card>
-          <Card
+          Welcome!{text}
+          <Cursor />
+        </Typography>
+      </Stack>
+      <Stack
+        spacing={{ xs: 1, sm: 2 }}
+        direction="row"
+        useFlexGap
+        flexWrap="wrap"
+        justifyContent="center"
+        sx={{ pt: "50px" }}
+      >
+        <Card sx={{ maxWidth: 450, backgroundColor: "#d0e7b7" }}>
+          {" "}
+          <CardMedia
             sx={{
-              maxWidth: 450,
-
-              backgroundColor: "#899d73",
+              padding: "1em 1em 1em 1em",
+              objectFit: "contain",
+              height: "300px",
             }}
-          >
-            <CardMedia
-              sx={{
-                padding: "1em 1em 1em 1em",
-                objectFit: "contain",
-                height: "300px",
-              }}
-              image={evimage}
-              title="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Importance
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lower running costs, Low maintenance cost, Zero Tailpipe
-                Emissions, Tax and financial benefits, Petrol and diesel use is
-                destroying our planet, Electric Vehicles are easy to drive and
-                quiet, Convenience of charging at home.
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">
-                <Link
-                  to="https://e-amrit.niti.gov.in/benefits-of-electric-vehicles"
-                  style={{ textDecoration: "none" }}
-                >
-                  Learn More
-                </Link>
-              </Button>
-            </CardActions>
-          </Card>
-          <Card
+            image={evimage}
+            title="E-Riksha"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Electric vehicle
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              An electric vehicle is a vehicle that uses one or more electric
+              motors for propulsion. It can be powered by a collector system,
+              with electricity from extravehicular sources, or it can be powered
+              autonomously by a battery.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">
+              <Link
+                to="https://en.wikipedia.org/wiki/Electric_vehicle"
+                style={{ textDecoration: "none" }}
+              >
+                Learn More
+              </Link>
+            </Button>
+          </CardActions>
+        </Card>
+        <Card
+          sx={{
+            maxWidth: 450,
+
+            backgroundColor: "#899d73",
+          }}
+        >
+          <CardMedia
             sx={{
-              maxWidth: 450,
-
-              backgroundColor: "#d0e7b7",
+              padding: "1em 1em 1em 1em",
+              objectFit: "contain",
+              height: "300px",
             }}
-          >
-            <CardMedia
-              sx={{
-                padding: "1em 1em 1em 1em",
-                objectFit: "contain",
-                height: "300px",
-              }}
-              image={evimage}
-              title="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Lokseva For You
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lokseva is a small initiative taken towards keeping out planet
-                safe! GREEN INDIA, CLEAN INDIA. <br />
-                Do you our website and feel free to critisize or appreciate it.
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">
-                <Link to="" style={{ textDecoration: "none" }}>
-                  {" "}
-                  Learn More
-                </Link>
-              </Button>
-            </CardActions>
-          </Card>
-        </Stack>
-        <Stack>
+            image={evimage}
+            title="green iguana"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Importance
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lower running costs, Low maintenance cost, Zero Tailpipe
+              Emissions, Tax and financial benefits, Petrol and diesel use is
+              destroying our planet, Electric Vehicles are easy to drive and
+              quiet, Convenience of charging at home.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">
+              <Link
+                to="https://e-amrit.niti.gov.in/benefits-of-electric-vehicles"
+                style={{ textDecoration: "none" }}
+              >
+                Learn More
+              </Link>
+            </Button>
+          </CardActions>
+        </Card>
+        <Card
+          sx={{
+            maxWidth: 450,
 
-        </Stack>
-      </Box>
-    </>
+            backgroundColor: "#d0e7b7",
+          }}
+        >
+          <CardMedia
+            sx={{
+              padding: "1em 1em 1em 1em",
+              objectFit: "contain",
+              height: "300px",
+            }}
+            image={evimage}
+            title="green iguana"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Lokseva For You
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lokseva is a small initiative taken towards keeping out planet
+              safe! GREEN INDIA, CLEAN INDIA. <br />
+              Do you our website and feel free to critisize or appreciate it.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">
+              <Link to="" style={{ textDecoration: "none" }}>
+                {" "}
+                Learn More
+              </Link>
+            </Button>
+          </CardActions>
+        </Card>
+      </Stack>
+    </div>
+
     // <div
     //   class="image"
     //   style={{
