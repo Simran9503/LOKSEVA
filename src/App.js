@@ -9,12 +9,11 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 
 
-
 function App() {
 
   return (
 
-    <Box width = "100px" height="50px" sx={{width: {xl: '1000px'}, backgroundColor: 'black'}} >
+    <Box >
 <Router>
   <Nav/>
   <Routes>
@@ -23,7 +22,7 @@ function App() {
 <Route path="/about" element={<AboutUs/>}/>
 <Route path="/help" element={<Help/>}/>
 <Route path="/login" element={<Login/>}/>
-
+<Route path="/contact" elemnt={<Contact/>}/>
 
    
   </Routes>
@@ -35,39 +34,3 @@ function App() {
 
 export default App;
 
-// import { Box } from "@mui/material";
-// import "./App.css";
-// import Navbar from "./components/Navbar";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//  import AboutUs from "./AboutUs";
-//  import Help from "./Help";
-//  import Login from "./Login";
-//  import Home from "./Home";
-
-
-// function App() {
-//   return (
-
-// <div className="App"  >
-// <Box >
-//       <Router>
-//         <Navbar />
-//         <Routes>
-//    <Route path="/" element={<Home/>} />
-//  <Route path="/about" element={<AboutUs/>}/>
-//  <Route path="/help" element={<Help/>}/>
-//  <Route path="/login" element={<Login/>}/>
-
-
-   
-//    </Routes>
-//       </Router>
-//       </Box>
-//     </div>
-
-
-   
-//   );
-// }
-
-// export default App;

@@ -3,22 +3,24 @@ import { Card, CardActions, CardContent, CardMedia, Typography } from "@mui/mate
 import { Link } from "react-router-dom";
 
 
-
 const CardForHome = ({props}) => {
    
   return (
     props.map((item)=>(
          
-        <Card  key ={item.id} sx={{ maxWidth: 450, backgroundColor: "#d0e7b7" }}>
-          {" "}
-          <CardMedia
+        <Card  key ={item.id} sx={{ maxWidth: 350, backgroundColor: '#e8e5ec' }}>
+          
+          <CardMedia component='img'
             sx={{
-              padding: "1em 1em 1em 1em",
-              objectFit: "contain",
-              height: "300px",
+             
+              objectFit: 'fill',
+              height: "150px",
+              width: "100%",
+              alignItems: 'center'
             }}
-            src="../assets/evimage.jpeg"
+            image={item.image}
             title={item.title}
+            
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -29,11 +31,11 @@ const CardForHome = ({props}) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">
+          
               <Link to={item.cardlink} style={{ textDecoration: "none" }}>
                 Learn More
               </Link>
-            </Button>
+           
           </CardActions>
         </Card>
 

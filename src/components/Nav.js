@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import logo from"../assets/logo.jpg";
 const Nav = () => {
   return (
-    <div>
-      <Box>
+    <div  style={{position:'sticky'}}>
+      <Box width = "100px" height="50px" sx={{backgroundColor: 'black',width: {xl: '1000px'}}}> 
         <Stack direction="row" spacing={10} justifyContent="space-between">
-          <Stack direction="row" spacing={3} >
+          <Stack direction="row" spacing={2} >
             <Link to="/">
               <img
                 src={logo}
@@ -25,15 +25,17 @@ const Nav = () => {
               noWrap
               component="a"
               href="/"
+              marginTop='2'
               sx={{
                 mr: 2,
+                
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 500,
                 letterSpacing: ".3rem",
                 color: "white",
                 textDecoration: "none",
-                ml: "0px", pl:"0"
+                ml: "0", pl:"0", pt:"3px"
               }}
             >
               LOKSEVA
@@ -56,9 +58,9 @@ const Nav = () => {
                   mr: 2,
                   mt:1,
                   display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
+                  fontFamily: 'monospace',
                   fontWeight: 500,
-                  letterSpacing: ".3rem",
+                  letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
                 }}
@@ -84,7 +86,7 @@ const Nav = () => {
                   display: { xs: "none", md: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 500,
-                  letterSpacing: ".3rem",
+                  letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
                 }}
@@ -109,7 +111,7 @@ const Nav = () => {
                   display: { xs: "none", md: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 500,
-                  letterSpacing: ".3rem",
+                  letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
                 }}
@@ -136,7 +138,7 @@ const Nav = () => {
                   display: { xs: "none", md: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 500,
-                  letterSpacing: ".3rem",
+                  letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
                 }}
@@ -151,3 +153,4 @@ const Nav = () => {
   );
 };
 export default Nav;
+
