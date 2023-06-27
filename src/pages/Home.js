@@ -1,7 +1,7 @@
 import { Opacity } from "@mui/icons-material";
 import { Box, Stack, Typography } from "@mui/material";
 
-import { useTypewriter, Cursor } from "react-simple-typewriter";
+//import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -21,13 +21,14 @@ const Home = () => {
     <Box
       sx={{
         backgroundImage: `url(${loksevabg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundRepeat: 'repeat',
+        backgroundSize: "100% auto",
         height: "100vh",
-        width: "100vw",
+       
         display: "flex",
         justiyContent: "space-between",
         flexDirection: "column",
+        overflow:'clip'
       }}
     >
       <Stack alignItems="center">
@@ -56,11 +57,16 @@ const Home = () => {
         useFlexGap
         flexWrap="wrap"
         justifyContent="center"
-        sx={{ pt: "50px" }}
+        sx={{ pt: "50px" , pl:'0px'}}
       >
         <CardForHome props={cardData}></CardForHome>
       </Stack>
+      <Link to='/contact' style={{textDecoration:'none'}}>
+      <Button sx={{display:'flex', flexDirection:'column', position:'fixed', paddingLeft:'30px',color:'white', paddingTop:'30px' }}>Contact Us</Button>
+      </Link>
+    
     </Box>
   );
 };
 export default Home;
+
