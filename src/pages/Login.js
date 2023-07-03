@@ -1,69 +1,38 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import { green } from "@mui/material/colors";
-import { useState } from "react";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import background from "../assets/background.avif"
+import photo from "../assets/photo.avif"
+import car from "../assets/car.webp"
 
-const Label = () => {
-  const [isSignup, setIsSignup]= useState(false);
+const Login1 = () => {
   return (
-    <div style={{backgroundColor:green}}>
-    
-      <form>
-        <Box
-          display="flex"
-          flexDirection={"column"}
-          maxWidth={400}
-          alignItems="center"
-          justifyContent={"center"}
-          margin="auto"
-          marginTop={10}
-          padding={3}
-          borderRadius={5}
-          boxShadow={"5px 5px 10px #ccc"}
-          sx={{
-            ":hover": {
-              boxShadow: "10px 10px 20px #ccc",
-            },
-          }}
-        >
-          <Typography variant="h2" padding={3} textAlign="center" color={green}>
-           {isSignup? "Signup" : "Login"}
-          </Typography>
-          {isSignup && (<TextField
-            margin="normal"
-            type={"text"}
-            variant="outlined"
-            placeholder="Name"
-          />)}
-          <TextField
-            margin="normal"
-            type={"email"}
-            variant="outlined"
-            placeholder="Email"
-          />
-          <TextField
-            margin="normal"
-            type={"password"}
-            variant="outlined"
-            placeholder="Password"
-          />
+    <Box  sx={{
+      backgroundImage: `url(${car})`,
+      backgroundRepeat: 'repeat',
+      backgroundSize: "100% auto",
+      height: "100vh",
+     
+      display: "flex",
+      justiyContent: "space-between",
+      flexDirection: "column",
+      overflow:'clip'
+    }}>
+    <Stack direction='row' spacing="170px" justifyContent='center' mt='250px' display='flex' >
+      <Link to="/loginyatri">
+        <Button variant="contained" color="success" sx={{
+          borderRadius:'30px'
+        }}> <Typography fontSize='30px' >Login As a <br/><q>Yatri</q></Typography></Button>
+      </Link>
 
-          <Button
-            sx={{ marginTop: 3, borderRadius: 3 }}
-            variant="contained"
-            color="warning"
-          >
-            {isSignup? "Signup" : "Login"}
-          </Button>
-          <Button onClick={()=>setIsSignup(!isSignup)}
-            sx={{ marginTop: 3, borderRadius: 3 }}
-            // variant="contained"
-            // color="warning"
-          >
-          Change To {isSignup ? "Login" : "Signup"}
-          </Button>
-        </Box>
-      </form>
-    </div>
+      <Link to="/loginchalak">
+        <Button variant="contained" color='success' sx={{
+          borderRadius:'30px'
+        }}><Typography fontSize='30px'  >Login As a <br/><q>Chalak</q></Typography></Button>
+      </Link>
+    </Stack>
+    </Box>
+
+ 
   );
 };
-export default Label;
+export default Login1;
