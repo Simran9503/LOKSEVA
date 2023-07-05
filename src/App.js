@@ -12,6 +12,8 @@ import Login2 from "./pages/Login2";
 import Credentials from "./pages/Credentials";
 import Mainchalak from "./pages/Mainchalak";
 import Mainyatri from "./pages/Mainyatri";
+import Signup1 from "./pages/Signup1";
+import Signup2 from "./pages/Signup2"
 
 function App() {
   return (
@@ -27,7 +29,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/loginyatri" element={<Login1 />} />
+          <Route path="/signupyatri" element={<Signup1 />} />
           <Route path="/loginchalak" element={<Login2 />} />
+          <Route path="/signupchalak" element={<Signup2 />} />
           <Route path="/credentials" element={<Credentials/>}/>
           <Route path="/mainyatri" element={<Mainyatri/>}/>
           <Route path="/mainchalak" element={<Mainchalak/>}/>

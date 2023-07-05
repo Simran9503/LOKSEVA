@@ -11,7 +11,7 @@ const Label = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [isSignup, setIsSignup]= useState(false);
   const [email, setEmail] = useState('')
- 
+  const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   
@@ -24,19 +24,21 @@ const Label = () => {
     
   //    }
   const handleSubmission = () => { 
-    if (!email || !password) {
+    if (!name || !email || !password) {
       setErrorMsg("Fill all fields");
       return;
     }
     setErrorMsg("");
 
     setSubmitButtonDisabled(true);
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
         const user = res.user;
-      
-        navigate("/Mainyatri");
+        await updateProfile(user, {
+          displayName: name,
+        });
+        navigate("/credentials");
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
@@ -47,14 +49,16 @@ const Label = () => {
      const signInWithGoogle = async() =>{
     try{
        await signInWithPopup(auth, googleProvider);
-       navigate("/mainyatri")
+       navigate("/credentials");
      } catch{
        console.error("Not defined")
      }
     
      }
    
-    
+    //  const login=()=>{
+    //    signInWithEmailAndPassword(auth, email, password).then((value)=>console.log("Sign in Success").catch((err)=>console.log(err)))
+    //  }
   return (
     <div style={{backgroundColor:green}}>
     
@@ -77,10 +81,20 @@ const Label = () => {
           }}
         >
           <Typography variant="h2" padding={3} textAlign="center" color={green}>
-          Login as a Yatri
+           Signup as a Chalak
           </Typography>
-        
-        
+          {isSignup && (<TextField
+            margin="normal"
+            type={"text"}
+            variant="outlined"
+            placeholder="Name"
+          />)}
+           <TextField onChange={(e)=> setName(e.target.value)}
+            margin="normal"
+            type={"text"}
+            variant="outlined"
+            placeholder="Name"
+          />
           <TextField onChange={(e)=> setEmail(e.target.value)}
             margin="normal"
             type={"email"}
@@ -93,32 +107,34 @@ const Label = () => {
             variant="outlined"
             placeholder="Password"
           />
-
-<Button disabled={submitButtonDisabled} onClick={handleSubmission}
+{/* <Link to="/credentials">
+<Button onClick={login}
             sx={{ marginTop: 3, borderRadius: 3 }}
             variant="contained"
             color="warning"
           >
             Login
           </Button>
-
-        
-        <Button  onClick={signInWithGoogle} sx={{mt:'20px'}}>
-            Sign in with google account
-          </Button>
+</Link> */}
         
        
-        {/* <Button onClick={handleSubmission}
-            sx={{ marginTop: 1, borderRadius: 3 }}
+        <Button onClick={handleSubmission}  variant="contained"
+            color="warning"
+            sx={{ marginTop: 1, borderRadius: 3, }}
             // variant="contained"
             // color="warning"
           >
           Sign up
-          </Button> */}
-           <p style={{fontWeight:'bold', color:'blue', letterSpacing:'1px', fontSize:'1rem', textDecoration:'none'}}>
+          </Button>
+         
+        <Button  onClick={signInWithGoogle} sx={{mt:'20px'}}>
+            Sign in with google account
+          </Button>
+       
+          <p style={{fontWeight:'bold', color:'blue', letterSpacing:'1px', fontSize:'1rem', textDecoration:'none'}}>
             Already have an account?{" "}
             <span>
-              <Link to="/signupchalak">Sign Up</Link>
+              <Link to="/loginchalak">Login</Link>
             </span>
           </p>
         </Box>

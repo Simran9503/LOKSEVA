@@ -18,16 +18,16 @@ const Login1 = () => {
       overflow:'clip'
     }}>
     <Stack direction='row' spacing="170px" justifyContent='center' mt='250px' display='flex' >
-      <Link to="/loginyatri">
+      <Link to="/signupyatri">
         <Button variant="contained" color="success" sx={{
           borderRadius:'30px'
-        }}> <Typography fontSize='30px' >Login As a <br/><q>Yatri</q></Typography></Button>
+        }}> <Typography fontSize='30px' >Sign up As a <br/><q>Yatri</q></Typography></Button>
       </Link>
 
-      <Link to="/loginchalak">
+      <Link to="/signupchalak">
         <Button variant="contained" color='success' sx={{
           borderRadius:'30px'
-        }}><Typography fontSize='30px'  >Login As a <br/><q>Chalak</q></Typography></Button>
+        }}><Typography fontSize='30px'  >Sign up As a <br/><q>Chalak</q></Typography></Button>
       </Link>
     </Stack>
     </Box>
