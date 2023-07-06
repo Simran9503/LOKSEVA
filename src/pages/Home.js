@@ -13,14 +13,15 @@ import logo from "../assets/logo.jpg";
 import evimage from "../assets/evimage.jpeg";
 import loksevabg from "../assets/loksevabg.jpeg";
 import Typewriter from "typewriter-effect";
-
+import photo from "../assets/photo.avif"
 import CardForHome from "../components/CardForHome";
 import { cardData } from "../assets/cardData";
+
 const Home = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${loksevabg})`,
+        backgroundImage: `url(${photo})`,
         backgroundRepeat: 'repeat',
         backgroundSize: "100% auto",
         height: "100vh",
@@ -59,7 +60,7 @@ const Home = () => {
         justifyContent="center"
         sx={{ pt: "50px" , pl:'0px'}}
       >
-        <CardForHome props={cardData}></CardForHome>
+        <CardForHome props={cardData}/>
       </Stack>
       <Link to='/contact' style={{textDecoration:'none'}}>
       <Button sx={{display:'flex', flexDirection:'column', position:'fixed', paddingLeft:'30px',color:'white', paddingTop:'30px' }}>Contact Us</Button>

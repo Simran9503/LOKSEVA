@@ -121,7 +121,7 @@ const Nav = () => {
           </Stack>
           <Stack direction="row" spacing={80}>
             <Link
-              to="/Login"
+              to="/login"
               style={{
                 textDecoration: "none",
                 color: "#fff",
