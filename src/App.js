@@ -3,7 +3,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
-import Help from "./pages/Help";
+// import Help from "./pages/Help";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/help" element={<Help />} />
+          {/* <Route path="/help" element={<Help />} /> */}
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />

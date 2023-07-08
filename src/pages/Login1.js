@@ -26,6 +26,7 @@ const Label = () => {
   const handleSubmission = () => { 
     if (!email || !password) {
       setErrorMsg("Fill all fields");
+      
       return;
     }
     setErrorMsg("");
@@ -36,7 +37,7 @@ const Label = () => {
         setSubmitButtonDisabled(false);
         const user = res.user;
       
-        navigate("/Mainyatri");
+        navigate("/mainyatri");
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
@@ -44,15 +45,15 @@ const Label = () => {
       });
   };
 
-     const signInWithGoogle = async() =>{
-    try{
-       await signInWithPopup(auth, googleProvider);
-       navigate("/mainyatri")
-     } catch{
-       console.error("Not defined")
-     }
+    //  const signInWithGoogle = async() =>{
+    // try{
+    //    await signInWithPopup(auth, googleProvider);
+    //    navigate("/mainyatri")
+    //  } catch{
+    //    console.error("Not defined")
+    //  }
     
-     }
+    //  }
    
     
   return (
@@ -103,9 +104,9 @@ const Label = () => {
           </Button>
 
         
-        <Button  onClick={signInWithGoogle} sx={{mt:'20px'}}>
+        {/* <Button  onClick={signInWithGoogle} sx={{mt:'20px'}}>
             Sign in with google account
-          </Button>
+          </Button> */}
         
        
         {/* <Button onClick={handleSubmission}
