@@ -1,5 +1,5 @@
 import { Box, Button, Stack, TextField } from "@mui/material"
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, doc, setDoc ,collection} from "firebase/firestore";
 import { useState } from "react";
 import firebase from "../config/firebase"
 import { db } from "../config/firebase";
@@ -13,11 +13,11 @@ const Credentials = () => {
     const[phone, setPhone] =useState("");
 
 const handleSubmit = ()=>{
-    fetchData();
+    setData();
 }
 
-const fetchData=async()=>{
-await setDoc(doc(db, "credentials", "chalak"),{
+const setData=async()=>{
+await addDoc(collection(db,"credentials"),{
     Name:{name},
     Aadhaar:{aadhaar},
     License:{license},
