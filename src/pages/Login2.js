@@ -44,15 +44,15 @@ const Label = () => {
       });
   };
 
-     const signInWithGoogle = async() =>{
-    try{
-       await signInWithPopup(auth, googleProvider);
-       navigate("/credentials");
-     } catch{
-       console.error("Not defined")
-     }
+    //  const signInWithGoogle = async() =>{
+    // try{
+    //    await signInWithPopup(auth, googleProvider);
+    //    navigate("/credentials");
+    //  } catch{
+    //    console.error("Not defined")
+    //  }
     
-     }
+    //  }
    
     
   return (
@@ -102,11 +102,11 @@ const Label = () => {
             Login
           </Button>
 
-        <Link to="/credentials">
+        {/* <Link to="/credentials">
         <Button  onClick={signInWithGoogle} sx={{mt:'20px'}}>
             Sign in with google account
           </Button>
-        </Link>
+        </Link> */}
        
         {/* <Button onClick={handleSubmission}
             sx={{ marginTop: 1, borderRadius: 3 }}

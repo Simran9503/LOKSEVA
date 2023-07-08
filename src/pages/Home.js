@@ -63,7 +63,7 @@ const Home = () => {
         <CardForHome props={cardData}/>
       </Stack>
       <Link to='/contact' style={{textDecoration:'none'}}>
-      <Button sx={{display:'flex', flexDirection:'column', position:'fixed', paddingLeft:'30px',color:'white', paddingTop:'30px' }}>Contact Us</Button>
+      <Button sx={{display:'flex', flexDirection:'column', position:'fixed', paddingLeft:'30px',color:'white', paddingTop:'30px', ":hover":{transform:'scale(0.9)'}  }}>Contact Us</Button>
       </Link>
     
     </Box>

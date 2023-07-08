@@ -1,9 +1,10 @@
 import { Box, Button, Stack, TextField } from "@mui/material"
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc , collection, addDoc} from "firebase/firestore";
 import { useState } from "react";
 import firebase from "../config/firebase"
 import { db } from "../config/firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Credentials = () => {
     const[name, setName] =useState("");
@@ -11,19 +12,27 @@ const Credentials = () => {
     const[license, setLicense] =useState(0);
     const[address, setAddress] =useState("");
     const[phone, setPhone] =useState("");
+    const [errorMsg, setErrorMsg] = useState("");
+    const navigate = useNavigate();
 
 const handleSubmit = ()=>{
+    if(!name || !aadhaar || !license || !address || !phone) {
+        setErrorMsg("Fill all the fields");
+        return
+    }
+    setErrorMsg("")
     fetchData();
 }
 
 const fetchData=async()=>{
-await setDoc(doc(db, "credentials", "chalak"),{
+await addDoc(collection(db, "credentials"),{
     Name:{name},
     Aadhaar:{aadhaar},
     License:{license},
     Address:{address},
     Phone:{phone}
 })
+ navigate('/mainchalak');
 }
 
   return (
@@ -81,11 +90,11 @@ await setDoc(doc(db, "credentials", "chalak"),{
     }}/>
 
 
-    <Link to="/Mainchalak">
+    {/* <Link to="/Mainchalak"> */}
     <Button onClick={handleSubmit} variant="contained" sx={{
         mt:'10px'
     }}>Submit</Button>
-    </Link>
+    {/* </Link> */}
    
    
 

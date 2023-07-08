@@ -1,7 +1,47 @@
 import { Box, Stack, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import logo from"../assets/logo.jpg";
+import { useEffect, useState } from "react";
+import {getAuth, onAuthStateChanged} from "firebase/auth"
+import {auth} from "../config/firebase"
+import Login1 from "../pages/Login1"
+import Login2 from "../pages/Login2"
+import Signup1 from "../pages/Signup1"
+import Signup2 from "../pages/Signup2"
+import firebase from 'firebase/compat/app';
+
 const Nav = () => {
+
+  const[user, setUser] =useState(null)
+
+useEffect(()=>{
+  onAuthStateChanged(auth, user=>{
+    if(user){
+     setUser(user);
+      console.log("hello", user)
+    }else{
+      //logged out
+      setUser(null)
+      console.log("you are logged out")
+    }
+  })
+},[])
+  
+
+  const handleLogout = async () => {
+    try {
+      await firebase.auth().signOut();
+      setUser(null);
+     
+    } catch (error) {
+     
+      console.log(error);
+    }
+  };
+
+
+
+ 
   return (
     <div  style={{position:'sticky'}}>
       <Box width = "100px" height="50px" sx={{backgroundColor: 'black',width: {xl: '1000px'}}}> 
@@ -63,6 +103,10 @@ const Nav = () => {
                   letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
+                  ":hover":{
+                    transform:'scale(0.9)'
+                  }
+                  
                 }}
               >
                 Home
@@ -73,6 +117,7 @@ const Nav = () => {
               style={{
                 textDecoration: "none",
                 color: "#fff",
+                
               }}
             >
                      <Typography
@@ -89,11 +134,14 @@ const Nav = () => {
                   letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
+                ":hover":{
+                  transform:'scale(0.9)'
+                }
                 }}
               >About Us</Typography>
              
             </Link>
-            <Link
+            {/* <Link
               to="/help"
               style={{
                 textDecoration: "none",
@@ -117,10 +165,66 @@ const Nav = () => {
                 }}
               >  Help</Typography>
             
-            </Link>
+            </Link> */}
           </Stack>
           <Stack direction="row" spacing={80}>
+            {user? (<Stack direction='row'>
+            
+              <Typography onClick={handleLogout}
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                mt:1,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 500,
+                letterSpacing: ".2rem",
+                color: "white",
+                textDecoration: "none",
+                ":hover":{
+                  transform:'scale(0.9)'
+                }
+              }}
+            >
+             Logout
+               </Typography>
+              
+              
             <Link
+              to="/mainyatri"
+              style={{
+                textDecoration: "none",
+                color: "#fff",
+              }}
+            >
+                 <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="/mainyatri"
+                sx={{
+                  mr: 2,
+                  mt:1,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 500,
+                  letterSpacing: ".2rem",
+                  color: "white",
+                  textDecoration: "none",
+                  ":hover":{
+                    transform:'scale(0.9)'
+                  }
+                }}
+              >
+               Book It
+                 </Typography>
+                  
+             
+            </Link>
+            </Stack>):(<Link
               to="/login"
               style={{
                 textDecoration: "none",
@@ -141,11 +245,47 @@ const Nav = () => {
                   letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
+                  ":hover":{
+                    transform:'scale(0.9)'
+                  }
                 }}
-              > Login</Typography>
+              >
+               Login
+                 </Typography>
                   
              
-            </Link>
+            </Link>)}
+            {/* <Link
+              to="/login"
+              style={{
+                textDecoration: "none",
+                color: "#fff",
+              }}
+            >
+                 <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                href="/"
+                sx={{
+                  mr: 2,
+                  mt:1,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 500,
+                  letterSpacing: ".2rem",
+                  color: "white",
+                  textDecoration: "none",
+                  ":hover":{
+                    transform:'scale(0.9)'
+                  }
+                }}
+              >
+               Login
+                 </Typography>
+                  
+             
+            </Link> */}
           </Stack>
         </Stack>
       </Box>

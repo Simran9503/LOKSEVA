@@ -8,7 +8,7 @@ const CardForHome = ({props}) => {
   return (
     props.map((item)=>(
          
-        <Card  key ={item.id} sx={{ maxWidth: 350, backgroundColor: '#e8e5ec' }}>
+        <Card  key ={item.id} sx={{ maxWidth: 350, backgroundColor: '#e8e5ec', ":hover":{transform:'scale(0.9)'} }}>
           
           <CardMedia component='img'
             sx={{
@@ -32,7 +32,7 @@ const CardForHome = ({props}) => {
           </CardContent>
           <CardActions>
           
-              <Link to={item.cardlink} style={{ textDecoration: "none" }}>
+              <Link to={item.cardlink} style={{ textDecoration: "none" }} target="_blank" rel="noopener">
                 Learn More
               </Link>
            
