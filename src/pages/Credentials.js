@@ -1,29 +1,51 @@
 import { Box, Button, Stack, TextField } from "@mui/material"
-import { addDoc, doc, setDoc ,collection} from "firebase/firestore";
+
+
+import { doc, setDoc , collection, addDoc} from "firebase/firestore";
+
 import { useState } from "react";
 import firebase from "../config/firebase"
 import { db } from "../config/firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Credentials = () => {
     const[name, setName] =useState("");
     const[aadhaar, setAadhaar] =useState(0);
     const[license, setLicense] =useState(0);
     const[address, setAddress] =useState("");
-    const[phone, setPhone] =useState("");
+    const [phone, setPhone] = useState("");
+    const [plateNumber, setplateNumber] = useState("");
+
+    const [errorMsg, setErrorMsg] = useState("");
+    const navigate = useNavigate();
 
 const handleSubmit = ()=>{
+
     setData();
 }
 
 const setData=async()=>{
-await addDoc(collection(db,"credentials"),{
+
+    if(!name || !aadhaar || !license || !address || !phone || !plateNumber) {
+        setErrorMsg("Fill all the fields");
+        return
+    }
+    setErrorMsg("")
+    fetchData();
+}
+
+const fetchData=async()=>{
+await addDoc(collection(db, "chalak"),{
+
     Name:{name},
     Aadhaar:{aadhaar},
     License:{license},
     Address:{address},
-    Phone:{phone}
+    Phone:{phone},
+    PlateNo :{plateNumber}
 })
+ navigate('/mainchalak');
 }
 
   return (
@@ -79,13 +101,21 @@ await addDoc(collection(db,"credentials"),{
         borderRadius:'2px',
         border:"none"
     }}/>
+    <TextField onChange={(e)=>{setplateNumber(e.target.value)}} label="Vehicle Plate Number" placeholder="ENTER YOUR VEHICLE'S PLATE NUMBER" type="number" sx={{
+       width: { xs: "70vw", sm: "60vw", md: "50vw", lg: "55vw" },
+        mt:'30px',
+        backgroundColor:'#979797',
+        mb:'10px',
+        borderRadius:'2px',
+        border:"none"
+    }}/>
 
 
-    <Link to="/Mainchalak">
+    {/* <Link to="/Mainchalak"> */}
     <Button onClick={handleSubmit} variant="contained" sx={{
         mt:'10px'
     }}>Submit</Button>
-    </Link>
+    {/* </Link> */}
    
    
 

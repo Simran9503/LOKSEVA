@@ -1,12 +1,22 @@
-import { Box } from "@mui/material"
+import { Box, Button } from "@mui/material"
+import TaxiData from "../components/TaxiData"
+
 
 const Mainyatri = () => {
+
+
+
+
+
   return (
     <Box sx={{
         backgroundSize:'100% auto',
+        display:"flex",
+        height :"100%",
+        backgroundColor:"black"
       
     }}>
-        <Box sx={{
+        {/* <Box sx={{
           width:'400px',
           height:'400px',
           justifyContent: "center",
@@ -28,19 +38,25 @@ const Mainyatri = () => {
 
           }}
     >
+      <Button >
+        Submit
+      </Button>
+    
 
-        </Box>
+        </Box> */}
         <Box sx={{
             width:'90vw',
             height:'100vh',
-            backgroundColor:'#e1e4e2',
+            
             ml:"50px",
             mt:"30px",
-            justifyContent: "center",
+            display:"flex",
+            justifyContent: "space-around",
             alignItems: "center",
             flexWrap: "wrap",
         }}>
-            Here we will display the drivers available lists...fetch it from the database i created...fetch only phone no. and taxino. and name.
+            <TaxiData></TaxiData>
+            
         </Box>
     </Box>
   )
