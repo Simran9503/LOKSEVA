@@ -16,8 +16,8 @@ const AboutUs = () => {
     >
       <Card
         sx={{
-          backgroundColor: "pink",
-          borderColor: "white",
+          backgroundColor: "black",
+          border:"3px solid white",
           width: { md: "75vw", sm: "78vw", xs: "78vw" },
           height: { md: "70vh", sm: "60vh", xs: "55vh" },
           display: "flex",
@@ -35,8 +35,8 @@ const AboutUs = () => {
       </Card>
       <Card
         sx={{
-          backgroundColor: "pink",
-          borderColor: "white",
+          backgroundColor: "black",
+          border :"3px solid white",
           width: { md: "75vw", sm: "78vw", xs: "78vw" },
           // height: { md: "70vh", sm: "60vh", xs: "55vh" },
           display: "flex",
@@ -52,7 +52,7 @@ const AboutUs = () => {
         <Typography variant="h3" color="white" sx={{ mb: "15px" , padding:{xs:"2.5rem" , sm:"2.7rem" , md :"1rem"}}}>
           Why choose our service ?
         </Typography>
-        <Typography variant="h5" sx={{padding:"2rem 2.8rem 2rem 2.8rem"}}>
+        <Typography variant="h5" sx={{padding:"2rem 2.8rem 2rem 2.8rem" , color :"white"}}>
           Eco-Friendly Transportation: Our fleet of electric taxis operates with
           zero-emissions, significantly reducing air pollution and greenhouse
           gas emissions. Convenience and Accessibility: With our user-friendly

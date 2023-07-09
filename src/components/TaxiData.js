@@ -20,13 +20,13 @@ const TaxiData = () => {
   const [info, setInfo] = useState([]);
   useEffect(() => {
     Fetchdata();
-  }, []);
+  },[]);
 
   const Fetchdata = async () => {
     const querySnapshot = await getDocs(collection(db, "chalak"));
-    querySnapshot.docs.map((doc) => {
+    querySnapshot.docs.map((doc) =>   {
       var data = doc.data();
-      setInfo([...info , data]);
+      setInfo((arr)=>[...arr ,  data]);
       console.log(doc.data());
     });
     // doc.data() is never undefined for query doc snapshots
@@ -43,7 +43,7 @@ const TaxiData = () => {
               </Typography>
               
               <span style={{ color: "white" }}>
-                Vehicle Plate Number:<h1>{data.PlateNo.plateNumber}</h1>
+                Vehicle PlatE Number:<h1>{data.PlateNo.plateNumber}</h1>
                 Contact Number :<h3>{data.Phone.phone}</h3>
               </span>
             </CardContent>
