@@ -38,13 +38,13 @@ const Home = () => {
           variant="h4"
           sx={{
             fontWeight: 600,
-            mt: "20px",
-            color: "#674188",
+            mt: "50px",
+            color: "white",
           }}
         >
           <Typewriter
             options={{
-              strings: ["Lokseva", " A intitiave by college students"],
+              strings: ["Lokseva", " An initiative by college students"],
               autoStart: true,
               loop: true,
               delay: 70,
@@ -63,8 +63,9 @@ const Home = () => {
       >
         <CardForHome props={cardData}/>
       </Stack>
-      <Link to='/contact' style={{textDecoration:'none'}}>
-      <Button sx={{display:{xs:'flex', sm:'flex', md:'flex'}, flexDirection:'column', position:'fixed', paddingLeft:'30px',color:'white', paddingTop:'30px', ":hover":{transform:'scale(0.9)'}  }}>Contact Us</Button>
+      <Link to='/contact' style={{textDecoration:'none' ,display:"flex" , alignItems:"center", justifyContent:"center"}}>
+      <Button sx={{display:'flex', flexDirection:'column', position:'fixed',bottom :"0" , textAlign:"center",  paddingLeft:'30px',color:'white',fontWeight:"bold",fontSize:"0.98rem",  ":hover":{transform:'scale(0.9)'}  }}>Contact Us</Button>
+
       </Link>
     
     </Box>

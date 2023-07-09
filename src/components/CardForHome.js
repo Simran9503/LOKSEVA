@@ -8,13 +8,13 @@ const CardForHome = ({props}) => {
   return (
     props.map((item)=>(
          
-        <Card  key ={item.id} sx={{ maxWidth: 350, backgroundColor: '#e8e5ec', ":hover":{transform:'scale(0.9)'} }}>
+        <Card  key ={item.id} sx={{ maxWidth: 350, backgroundColor: '#e8e5ec', mt:"70px",":hover":{transform:'scale(1.09)'} }}>
           
           <CardMedia component='img'
             sx={{
              
               objectFit: 'fill',
-              height: "150px",
+              height: "200px",
               width: "100%",
               alignItems: 'center'
             }}
