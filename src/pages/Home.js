@@ -19,7 +19,7 @@ import { cardData } from "../assets/cardData";
 
 const Home = () => {
   return (
-    <Box
+    <Box 
       sx={{
         backgroundImage: `url(${photo})`,
         backgroundRepeat: 'repeat',
@@ -29,7 +29,8 @@ const Home = () => {
         display: "flex",
         justiyContent: "space-between",
         flexDirection: "column",
-        overflow:'clip'
+        overflow:'auto'
+        
       }}
     >
       <Stack alignItems="center">
@@ -64,6 +65,7 @@ const Home = () => {
       </Stack>
       <Link to='/contact' style={{textDecoration:'none' ,display:"flex" , alignItems:"center", justifyContent:"center"}}>
       <Button sx={{display:'flex', flexDirection:'column', position:'fixed',bottom :"0" , textAlign:"center",  paddingLeft:'30px',color:'white',fontWeight:"bold",fontSize:"0.98rem",  ":hover":{transform:'scale(0.9)'}  }}>Contact Us</Button>
+
       </Link>
     
     </Box>

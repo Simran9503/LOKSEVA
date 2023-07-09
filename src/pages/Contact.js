@@ -11,7 +11,8 @@ const Contact = () => {
   
 
     }}>
-    <Box sx={{
+    <Box  
+    sx={{
      width:'500px',
      width: { xs: "70vw", sm: "60vw", md: "50vw", lg: "60vw" },
     
@@ -22,7 +23,7 @@ const Contact = () => {
       boxShadow:'5px 5px 5px ',
       transform:'scale(1.1)' //enlargement of box on hover
      },
-     borderRadius:'20px'
+     borderRadius:'0px 40px 40px 40px'
     }}>
       <Stack direction='column' alignItems='center'>
       <Typography  fontSize='20px' fontWeight='200px' display='flex'  justifyContent='center' sx={{
@@ -56,6 +57,16 @@ const Contact = () => {
       
 
     </Box>
+    {/* <div style={{
+      width:'0px',
+      height:'0px',
+      borderBottom:'100px solid black',
+      borderLeft:'50px solid transparent',
+      borderRight:'50px solid transparent'
+
+    }}>
+
+    </div> */}
     </Box>
   )
 }
