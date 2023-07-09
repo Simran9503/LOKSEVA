@@ -38,7 +38,7 @@ const Home = () => {
           variant="h4"
           sx={{
             fontWeight: 600,
-            mt: "50px",
+            mt: "30px",
             color: "white",
           }}
         >
@@ -59,7 +59,7 @@ const Home = () => {
         useFlexGap
         flexWrap="wrap"
         justifyContent="center"
-        sx={{ pt: "50px" , pl:'0px'}}
+        sx={{ pt: "3px" , pl:'0px', mb:'30px'}}
       >
         <CardForHome props={cardData}/>
       </Stack>
