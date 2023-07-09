@@ -1,8 +1,8 @@
 import { Box, Stack, Typography, Button } from "@mui/material";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from"../assets/logo.jpg";
 import { useEffect, useState } from "react";
-import {getAuth, onAuthStateChanged} from "firebase/auth"
+import {getAuth, onAuthStateChanged, signOut} from "firebase/auth"
 import {auth} from "../config/firebase"
 import Login1 from "../pages/Login1"
 import Login2 from "../pages/Login2"
@@ -11,17 +11,18 @@ import Signup2 from "../pages/Signup2"
 import firebase from 'firebase/compat/app';
 
 const Nav = () => {
-
-  const[user, setUser] =useState(null)
+const navigate = useNavigate();
+  const[user, setUser] =useState( null);
 
 useEffect(()=>{
-  onAuthStateChanged(auth, user=>{
+  onAuthStateChanged(auth, (user)=>{
     if(user){
      setUser(user);
       console.log("hello", user)
-    }else{
+    }
+    else{
       //logged out
-      setUser(null)
+      
       console.log("you are logged out")
     }
   })
@@ -29,24 +30,26 @@ useEffect(()=>{
   
 
   const handleLogout = async () => {
-    try {
-      await firebase.auth().signOut();
-      setUser(null);
-     
-    } catch (error) {
-     
+    signOut(auth).then(()=>{
+      setUser(null)
+      navigate('/');
+    }).catch((error)=>{
       console.log(error);
-    }
+    })
   };
 
 
 
  
   return (
-    <div  style={{position:'sticky'}}>
-      <Box width = "100px" height="50px" sx={{backgroundColor: 'black',width: {xl: '1000px'}}}> 
+    <div style={{ position: "sticky" }}>
+      <Box
+        width="100px"
+        height="50px"
+        sx={{ backgroundColor: "black", width: { xl: "1000px" } }}
+      >
         <Stack direction="row" spacing={10} justifyContent="space-between">
-          <Stack direction="row" spacing={2} >
+          <Stack direction="row" spacing={2}>
             <Link to="/">
               <img
                 src={logo}
@@ -65,17 +68,19 @@ useEffect(()=>{
               noWrap
               component="a"
               href="/"
-              marginTop='2'
+              marginTop="2"
               sx={{
                 mr: 2,
-                
+
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 500,
                 letterSpacing: ".3rem",
                 color: "white",
                 textDecoration: "none",
-                ml: "0", pl:"0", pt:"3px"
+                ml: "0",
+                pl: "0",
+                pt: "3px",
               }}
             >
               LOKSEVA
@@ -96,17 +101,16 @@ useEffect(()=>{
                 href="/"
                 sx={{
                   mr: 2,
-                  mt:1,
+                  mt: 1,
                   display: { xs: "none", md: "flex" },
-                  fontFamily: 'monospace',
+                  fontFamily: "monospace",
                   fontWeight: 500,
                   letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
-                  ":hover":{
-                    transform:'scale(0.9)'
-                  }
-                  
+                  ":hover": {
+                    transform: "scale(0.9)",
+                  },
                 }}
               >
                 Home
@@ -117,29 +121,29 @@ useEffect(()=>{
               style={{
                 textDecoration: "none",
                 color: "#fff",
-                
               }}
             >
-                     <Typography
+              <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="/"
                 sx={{
                   mr: 2,
-                  mt:1,
+                  mt: 1,
                   display: { xs: "none", md: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 500,
                   letterSpacing: ".2rem",
                   color: "white",
                   textDecoration: "none",
-                ":hover":{
-                  transform:'scale(0.9)'
-                }
+                  ":hover": {
+                    transform: "scale(0.9)",
+                  },
                 }}
-              >About Us</Typography>
-             
+              >
+                About Us
+              </Typography>
             </Link>
             {/* <Link
               to="/help"
@@ -168,93 +172,91 @@ useEffect(()=>{
             </Link> */}
           </Stack>
           <Stack direction="row" spacing={80}>
-            {user? (<Stack direction='row'>
-            
-              <Typography onClick={handleLogout}
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                mt:1,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 500,
-                letterSpacing: ".2rem",
-                color: "white",
-                textDecoration: "none",
-                ":hover":{
-                  transform:'scale(0.9)'
-                }
-              }}
-            >
-             Logout
-               </Typography>
-              
-              
-            <Link
-              to="/mainyatri"
-              style={{
-                textDecoration: "none",
-                color: "#fff",
-              }}
-            >
-                 <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/mainyatri"
-                sx={{
-                  mr: 2,
-                  mt:1,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 500,
-                  letterSpacing: ".2rem",
-                  color: "white",
+            { user ? (
+              <Stack direction="row">
+                <Link>
+                  <Typography
+                  onClick={ handleLogout}
+                    variant="h6"
+                    noWrap
+                    component="a"
+                    sx={{
+                      mr: 2,
+                      mt: 1,
+                      display: { xs: "none", md: "flex" },
+                      fontFamily: "monospace",
+                      fontWeight: 500,
+                      letterSpacing: ".2rem",
+                      color: "white",
+                      textDecoration: "none",
+                      ":hover": {
+                        transform: "scale(0.9)",
+                      },
+                    }}
+                  >
+                    Logout
+                  </Typography>
+                </Link>
+
+                <Link
+                  to="/mainyatri"
+                  style={{
+                    textDecoration: "none",
+                    color: "#fff",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    noWrap
+                    sx={{
+                      mr: 2,
+                      mt: 1,
+                      display: { xs: "none", md: "flex" },
+                      fontFamily: "monospace",
+                      fontWeight: 500,
+                      letterSpacing: ".2rem",
+                      color: "white",
+                      textDecoration: "none",
+                      ":hover": {
+                        transform: "scale(0.9)",
+                      },
+                    }}
+                  >
+                    Book It
+                  </Typography>
+                </Link>
+              </Stack>
+            ) : (
+              <Link
+                to="/login"
+                style={{
                   textDecoration: "none",
-                  ":hover":{
-                    transform:'scale(0.9)'
-                  }
+                  color: "#fff",
                 }}
               >
-               Book It
-                 </Typography>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="a"
                   
-             
-            </Link>
-            </Stack>):(<Link
-              to="/login"
-              style={{
-                textDecoration: "none",
-                color: "#fff",
-              }}
-            >
-                 <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 2,
-                  mt:1,
-                  display: { xs: "none", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 500,
-                  letterSpacing: ".2rem",
-                  color: "white",
-                  textDecoration: "none",
-                  ":hover":{
-                    transform:'scale(0.9)'
-                  }
-                }}
-              >
-               Login
-                 </Typography>
-                  
-             
-            </Link>)}
+                  sx={{
+                    mr: 2,
+                    mt: 1,
+                    display: { xs: "none", md: "flex" },
+                    fontFamily: "monospace",
+                    fontWeight: 500,
+                    letterSpacing: ".2rem",
+                    color: "white",
+                    textDecoration: "none",
+                    ":hover": {
+                      transform: "scale(0.9)",
+                    },
+                  }}
+                >
+                  Login
+                </Typography>
+              </Link>
+            )}
             {/* <Link
               to="/login"
               style={{

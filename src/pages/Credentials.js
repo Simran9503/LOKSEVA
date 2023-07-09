@@ -1,5 +1,8 @@
 import { Box, Button, Stack, TextField } from "@mui/material"
+
+
 import { doc, setDoc , collection, addDoc} from "firebase/firestore";
+
 import { useState } from "react";
 import firebase from "../config/firebase"
 import { db } from "../config/firebase";
@@ -11,12 +14,20 @@ const Credentials = () => {
     const[aadhaar, setAadhaar] =useState(0);
     const[license, setLicense] =useState(0);
     const[address, setAddress] =useState("");
-    const[phone, setPhone] =useState("");
+    const [phone, setPhone] = useState("");
+    const [plateNumber, setplateNumber] = useState("");
+
     const [errorMsg, setErrorMsg] = useState("");
     const navigate = useNavigate();
 
 const handleSubmit = ()=>{
-    if(!name || !aadhaar || !license || !address || !phone) {
+
+    setData();
+}
+
+const setData=async()=>{
+
+    if(!name || !aadhaar || !license || !address || !phone || !plateNumber) {
         setErrorMsg("Fill all the fields");
         return
     }
@@ -25,12 +36,14 @@ const handleSubmit = ()=>{
 }
 
 const fetchData=async()=>{
-await addDoc(collection(db, "credentials"),{
+await addDoc(collection(db, "chalak"),{
+
     Name:{name},
     Aadhaar:{aadhaar},
     License:{license},
     Address:{address},
-    Phone:{phone}
+    Phone:{phone},
+    PlateNo :{plateNumber}
 })
  navigate('/mainchalak');
 }
@@ -81,6 +94,14 @@ await addDoc(collection(db, "credentials"),{
         border:"none"
     }}/>
     <TextField onChange={(e)=>{setPhone(e.target.value)}} label="Phone Number" placeholder="ENTER YOUR PHONE NUMBER" type="number" sx={{
+       width: { xs: "70vw", sm: "60vw", md: "50vw", lg: "55vw" },
+        mt:'30px',
+        backgroundColor:'#979797',
+        mb:'10px',
+        borderRadius:'2px',
+        border:"none"
+    }}/>
+    <TextField onChange={(e)=>{setplateNumber(e.target.value)}} label="Vehicle Plate Number" placeholder="ENTER YOUR VEHICLE'S PLATE NUMBER" type="number" sx={{
        width: { xs: "70vw", sm: "60vw", md: "50vw", lg: "55vw" },
         mt:'30px',
         backgroundColor:'#979797',
