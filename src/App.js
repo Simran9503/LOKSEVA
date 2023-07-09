@@ -19,6 +19,7 @@ function App() {
   return (
     <Box>
       <Router>
+        
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
