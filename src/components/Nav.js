@@ -322,7 +322,9 @@ const Nav = () => {
                                 textDecoration: 'none',
                                 ':hover': {
                                   transform: 'scale(0.9)',
+
                                 },
+                                mr:'10px'
                               }}
                             >
                               Login
